@@ -11,12 +11,11 @@ int main()
         auto start = chrono::high_resolution_clock::now();
         cout << "f(" << i << ") = " << fibonacci(i);
         auto stop = chrono::high_resolution_clock::now();
-        auto durationMilli= chrono::duration_cast<chrono::milliseconds>(stop - start);
-        auto durationMicro = chrono::duration_cast<chrono::microseconds>(stop - start);
         auto durationNano = chrono::duration_cast<chrono::nanoseconds>(stop - start);
-        cout << " | Milli: " << durationMilli.count()
-             << " | Micro: " << durationMicro.count()
-             << " | Nano : " << durationNano.count() << endl;
+        cout << " | Seg: " << float(durationNano.count()) / 1000000000
+             << " | Mili: " << float(durationNano.count()) / 1000000
+             << " | Micro: " << float(durationNano.count()) / 1000
+             << " | Nano: " << float(durationNano.count()) << endl;
     }
     return 0;
 }
